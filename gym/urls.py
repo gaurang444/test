@@ -23,4 +23,5 @@ urlpatterns = [
     path('', home),
     path('careers/', carrers, name='careers'),
     path('join-today/', join_gym, name='join-today'),
+    path('contact-us/', contact_us, name='contact-us'),
 ]

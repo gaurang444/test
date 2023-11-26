@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
-from .models import Member
+from .models import Member, Contact
 
 def home(request):
     return render(request,"index.html")
@@ -27,4 +27,17 @@ def join_gym(request):
         response_data = {'message': 'Form submitted successfully!'}
         return JsonResponse(response_data)
     else:
-        return JsonResponse({"status":"success"})
+        return JsonResponse({"status":"failed"})
+    
+@csrf_exempt
+def contact_us(request):
+    if request.method == 'POST':
+        # Get form data from the POST request
+        email = request.POST.get('email')
+        contact_us = Contact(email=email)
+        contact_us.save()
+        print("data addedd succesfully in contact us table")
+        response_data = {'message': 'Form submitted successfully!'}
+        return JsonResponse(response_data)
+    else:
+        return JsonResponse({"status":"failed"})

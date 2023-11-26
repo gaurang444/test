@@ -532,13 +532,14 @@
                     <p>Contact us at divyanshu7203@gmail.com Happy to help </p>
                     <form>
                         <div class="form-group">
-                            <label for="email">Enter Your Email we will reach you asap</label>
-                            <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                            <label for="email">Enter Your Phone/Email we will reach you asap</label>
+                            <input type="email" class="form-control" id="contact_email" placeholder="Enter your email">
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" onclick="contactUs()" id="contact_us">Submit</button>
 
                 </div>
             </div>
@@ -593,6 +594,35 @@
                 }
         
             });
+        }
+
+        function contactUs(){
+            //id contact_email
+            var formData = {
+                'email': $('#contact_email').val()
+            };
+            $.ajax({
+                type: 'POST',
+                url: "http://localhost:8000/contact-us/",  
+                data: formData,
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data);
+                    // Check for the 'message' key in the response data
+                    if (data.message) {
+                        alert("thanks for details contacting soon !");
+                    } else {
+                        // Handle other cases if needed
+                        console.log("email noted we will reach shortly!");
+                    }
+                },
+                error: function (data) {
+                    console.log(data);
+                    alert('Error submitting form!');
+                }
+        
+            });
+
         }
     </script>
 
