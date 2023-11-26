@@ -24,4 +24,7 @@ urlpatterns = [
     path('careers/', carrers, name='careers'),
     path('join-today/', join_gym, name='join-today'),
     path('contact-us/', contact_us, name='contact-us'),
+    path('pricing/', pricing, name='pricing'),
+    path('classes/', classes, name='classes'),
+    path('thanks/', thanks, name='thanks'),
 ]

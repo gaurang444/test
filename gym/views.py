@@ -9,7 +9,14 @@ def home(request):
 def carrers(request):
     return render(request, 'carrers.html')
 
+def pricing(request):
+    return render(request, 'pricing.html')
 
+def classes(request):
+    return render(request, 'classes.html')
+
+def thanks(request):
+    return render(request, 'thanks.html')
 
 @csrf_exempt
 def join_gym(request):

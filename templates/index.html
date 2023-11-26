@@ -30,10 +30,10 @@
                 <li class="link"><a href="#home">Home</a></li>
                 <li class="link"><button class="btn" id="contact_us_btn" data-toggle="modal" data-target="#contactusModal">Contact Us</button></li>
 
-                <li class="link"><a href="#class">Classes</a></li>
+                <li class="link"><a href="{% url 'classes' %}" target="_blank">Classes</a></li>
                 <li class="link"><button class="btn" id="contact_us_btn" data-toggle="modal" data-target="#franchiseModal">Franchise Info</button></li>
 
-                <li class="link"><a href="#price">Pricing</a></li>
+                <li class="link"><a href="{% url 'pricing' %}" target="_blank">Pricing</a></li>
                 <li class="link"><button class="btn" id="contact_us_btn" data-toggle="modal" data-target="#bmiCalculatorModal">BMI Calculator</button></li>
             </ul>
         </nav>
@@ -581,12 +581,7 @@
                 success: function (data) {
                     console.log(data);
                     // Check for the 'message' key in the response data
-                    if (data.message) {
-                        alert(data.message);
-                    } else {
-                        // Handle other cases if needed
-                        console.log("Form submitted successfully!");
-                    }
+                    window.location.href = '/thanks';
                 },
                 error: function (data) {
                     console.log(data);
