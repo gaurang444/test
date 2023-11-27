@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
-from .models import Member, Contact
+from .models import Member, Contacts
 
 def home(request):
     return render(request,"index.html")
@@ -41,7 +41,7 @@ def contact_us(request):
     if request.method == 'POST':
         # Get form data from the POST request
         email = request.POST.get('email')
-        contact_us = Contact(email=email)
+        contact_us = Contacts(email=email)
         contact_us.save()
         print("data addedd succesfully in contact us table")
         response_data = {'message': 'Form submitted successfully!'}

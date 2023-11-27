@@ -79,8 +79,12 @@ WSGI_APPLICATION = 'gym.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'mysql.connector.django',
+        'NAME': 'gym',
+        'USER': 'root',
+        'PASSWORD': 'gaurang44@B',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
 
