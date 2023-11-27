@@ -18,6 +18,9 @@ def classes(request):
 def thanks(request):
     return render(request, 'thanks.html')
 
+def blog(request):
+    return render(request, 'blog.html')
+
 @csrf_exempt
 def join_gym(request):
     print("hello")

@@ -27,4 +27,5 @@ urlpatterns = [
     path('pricing/', pricing, name='pricing'),
     path('classes/', classes, name='classes'),
     path('thanks/', thanks, name='thanks'),
+    path('blog/', blog, name='blog'),
 ]
