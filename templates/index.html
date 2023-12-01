@@ -568,6 +568,11 @@
                 'phone': $('#phone').val(),
                 'membership': $('#membership').val(),
             };
+
+            if (formData.email.trim() === '' || formData.name.trim() === '' || formData.phone.trim() === '' || formData.membership.trim() === '') {
+                alert('Please enter all form fields for registration.');
+                return;
+              }
     
             
             $.ajax({
