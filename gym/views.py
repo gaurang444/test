@@ -30,8 +30,9 @@ def join_gym(request):
         email = request.POST.get('email')
         phone = request.POST.get('phone')
         membership = request.POST.get('membership')
-        print(name,email,phone,membership)
-        member = Member(name=name, email=email, phone=phone, membership=membership)
+        password = request.POST.get('pass')
+        print(name,email,phone,membership, password)
+        member = Member(name=name, email=email, phone=phone, membership=membership, password=password)
         member.save()
         print("data addedd succesfully")
         response_data = {'message': 'Form submitted successfully!'}

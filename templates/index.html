@@ -80,6 +80,10 @@
                             <input type="email" class="form-control" id="email" required>
                         </div>
                         <div class="form-group">
+                            <label for="email">Create Password:</label>
+                            <input type="text" class="form-control" id="login_pass" required>
+                        </div>
+                        <div class="form-group">
                             <label for="phone">Phone Number:</label>
                             <input type="tel" class="form-control" id="phone" required>
                         </div>
@@ -567,9 +571,10 @@
                 'email': $('#email').val(),
                 'phone': $('#phone').val(),
                 'membership': $('#membership').val(),
+                'pass':$('#login_pass').val(),
             };
 
-            if (formData.email.trim() === '' || formData.name.trim() === '' || formData.phone.trim() === '' || formData.membership.trim() === '') {
+            if (formData.email.trim() === '' || formData.name.trim() === '' || formData.phone.trim() === '' || formData.membership.trim() === '' || formData.pass.trim() === '') {
                 alert('Please enter all form fields for registration.');
                 return;
               }
