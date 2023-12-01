@@ -28,4 +28,5 @@ urlpatterns = [
     path('classes/', classes, name='classes'),
     path('thanks/', thanks, name='thanks'),
     path('blog/', blog, name='blog'),
+    path('login/', login, name='login'),
 ]

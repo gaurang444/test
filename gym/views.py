@@ -21,6 +21,9 @@ def thanks(request):
 def blog(request):
     return render(request, 'blog.html')
 
+def login(request):
+    return render(request, 'login.html')
+
 @csrf_exempt
 def join_gym(request):
     print("hello")
