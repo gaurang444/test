@@ -24,6 +24,9 @@ def blog(request):
 def login(request):
     return render(request, 'login.html')
 
+def gym_schedule(request):
+    return render(request, 'gym_schedule.html')
+
 @csrf_exempt
 def join_gym(request):
     print("hello")
@@ -55,3 +58,23 @@ def contact_us(request):
         return JsonResponse(response_data)
     else:
         return JsonResponse({"status":"failed"})
+
+
+
+
+@csrf_exempt
+def validate_login(request):
+    if request.method == 'POST':
+        # Get form data from the POST request
+        password = request.POST.get('pass')
+        email = request.POST.get('email')
+        data = Member.objects.filter(email=email, password=password).first()
+        if data:
+            print("loginn success data fetched okk")
+            print(email,password)
+            res={'message':'ok'}
+            return JsonResponse(res)
+        response_data = {'message': 'notok'}
+        return JsonResponse(response_data)
+    else:
+        return JsonResponse({"message":"method not allowed"})

@@ -8,9 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <style>
         /* Optional: Add custom styles if needed */
         body {
@@ -39,6 +37,7 @@
 <body>
     <div class="container custom-container">
         <h2>Member Login</h2>
+        <h4>Login to check gym schedule</h4><br>
         <form>
           <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
@@ -49,8 +48,45 @@
             <label for="exampleInputPassword1">Password</label>
             <input type="text" class="form-control" id="login_pass" placeholder="Password">
           </div>
-          <button type="submit" class="btn btn-primary" onclick="memberLogin()">Submit</button>
+          <button type="button" class="btn btn-primary" onclick="memberLogin()">Submit</button>
         </form>
       </div>
 </body>
+
+<script>
+  function memberLogin() {
+      
+    var formData = {
+        'email': $('#login_email').val(),
+        'pass': $('#login_pass').val()
+    };
+
+    if (formData.email.trim() === '' || formData.pass.trim() === '') {
+        alert('Please enter email/pass for login.');
+        return;
+      }
+
+    
+    $.ajax({
+        type: 'POST',
+        url: "http://localhost:8000/validate-login/",  
+        data: formData,
+        dataType: 'json',
+        success: function (data) {
+            if (data.message=="ok") {
+                alert("login success !");
+                window.location.href = '/gym-schedule';
+            } else {
+                alert("wrong credentials try again!");
+            }
+        },
+        error: function (data) {
+            console.log(data);
+            alert('Error submitting form!');
+        }
+
+    });
+}
+
+</script>
 </html>

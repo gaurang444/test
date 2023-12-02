@@ -29,4 +29,6 @@ urlpatterns = [
     path('thanks/', thanks, name='thanks'),
     path('blog/', blog, name='blog'),
     path('login/', login, name='login'),
+    path('validate-login/', validate_login, name='validate_login'),
+    path('gym-schedule/', gym_schedule, name='gym-schedule')
 ]
